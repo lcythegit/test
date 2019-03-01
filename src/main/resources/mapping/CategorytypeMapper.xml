@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.computershop.mapper.CategorytypeMapper" >
+  <resultMap id="BaseResultMap" type="com.computershop.model.Categorytype" >
+    <id column="Tid" property="tid" jdbcType="INTEGER" />
+    <result column="xm" property="xm" jdbcType="VARCHAR" />
+    <result column="hp" property="hp" jdbcType="VARCHAR" />
+    <result column="dell" property="dell" jdbcType="VARCHAR" />
+    <result column="le" property="le" jdbcType="VARCHAR" />
+    <result column="apple" property="apple" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Tid, xm, hp, dell, le, apple
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from categorytype
+    where Tid = #{tid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from categorytype
+    where Tid = #{tid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.computershop.model.Categorytype" >
+    insert into categorytype (Tid, xm, hp, 
+      dell, le, apple)
+    values (#{tid,jdbcType=INTEGER}, #{xm,jdbcType=VARCHAR}, #{hp,jdbcType=VARCHAR}, 
+      #{dell,jdbcType=VARCHAR}, #{le,jdbcType=VARCHAR}, #{apple,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.computershop.model.Categorytype" >
+    insert into categorytype
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tid != null" >
+        Tid,
+      </if>
+      <if test="xm != null" >
+        xm,
+      </if>
+      <if test="hp != null" >
+        hp,
+      </if>
+      <if test="dell != null" >
+        dell,
+      </if>
+      <if test="le != null" >
+        le,
+      </if>
+      <if test="apple != null" >
+        apple,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="xm != null" >
+        #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="hp != null" >
+        #{hp,jdbcType=VARCHAR},
+      </if>
+      <if test="dell != null" >
+        #{dell,jdbcType=VARCHAR},
+      </if>
+      <if test="le != null" >
+        #{le,jdbcType=VARCHAR},
+      </if>
+      <if test="apple != null" >
+        #{apple,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.computershop.model.Categorytype" >
+    update categorytype
+    <set >
+      <if test="xm != null" >
+        xm = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="hp != null" >
+        hp = #{hp,jdbcType=VARCHAR},
+      </if>
+      <if test="dell != null" >
+        dell = #{dell,jdbcType=VARCHAR},
+      </if>
+      <if test="le != null" >
+        le = #{le,jdbcType=VARCHAR},
+      </if>
+      <if test="apple != null" >
+        apple = #{apple,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Tid = #{tid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.computershop.model.Categorytype" >
+    update categorytype
+    set xm = #{xm,jdbcType=VARCHAR},
+      hp = #{hp,jdbcType=VARCHAR},
+      dell = #{dell,jdbcType=VARCHAR},
+      le = #{le,jdbcType=VARCHAR},
+      apple = #{apple,jdbcType=VARCHAR}
+    where Tid = #{tid,jdbcType=INTEGER}
+  </update>
+</mapper>

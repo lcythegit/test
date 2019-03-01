@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.computershop.mapper.UsersMapper" >
+  <resultMap id="BaseResultMap" type="com.computershop.model.Users" >
+    <id column="Userid" property="userid" jdbcType="INTEGER" />
+    <result column="Username" property="username" jdbcType="VARCHAR" />
+    <result column="Userpassword" property="userpassword" jdbcType="VARCHAR" />
+    <result column="Userphone" property="userphone" jdbcType="VARCHAR" />
+    <result column="Useremail" property="useremail" jdbcType="VARCHAR" />
+    <result column="Useraddress" property="useraddress" jdbcType="VARCHAR" />
+    <result column="Userwish" property="userwish" jdbcType="VARCHAR" />
+    <result column="Usercart" property="usercart" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Userid, Username, Userpassword, Userphone, Useremail, Useraddress, Userwish, Usercart
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from users
+    where Userid = #{userid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from users
+    where Userid = #{userid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.computershop.model.Users" >
+    insert into users (Userid, Username, Userpassword, 
+      Userphone, Useremail, Useraddress, 
+      Userwish, Usercart)
+    values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR}, 
+      #{userphone,jdbcType=VARCHAR}, #{useremail,jdbcType=VARCHAR}, #{useraddress,jdbcType=VARCHAR}, 
+      #{userwish,jdbcType=VARCHAR}, #{usercart,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.computershop.model.Users" >
+    insert into users
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        Userid,
+      </if>
+      <if test="username != null" >
+        Username,
+      </if>
+      <if test="userpassword != null" >
+        Userpassword,
+      </if>
+      <if test="userphone != null" >
+        Userphone,
+      </if>
+      <if test="useremail != null" >
+        Useremail,
+      </if>
+      <if test="useraddress != null" >
+        Useraddress,
+      </if>
+      <if test="userwish != null" >
+        Userwish,
+      </if>
+      <if test="usercart != null" >
+        Usercart,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null" >
+        #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userphone != null" >
+        #{userphone,jdbcType=VARCHAR},
+      </if>
+      <if test="useremail != null" >
+        #{useremail,jdbcType=VARCHAR},
+      </if>
+      <if test="useraddress != null" >
+        #{useraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userwish != null" >
+        #{userwish,jdbcType=VARCHAR},
+      </if>
+      <if test="usercart != null" >
+        #{usercart,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.computershop.model.Users" >
+    update users
+    <set >
+      <if test="username != null" >
+        Username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null" >
+        Userpassword = #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userphone != null" >
+        Userphone = #{userphone,jdbcType=VARCHAR},
+      </if>
+      <if test="useremail != null" >
+        Useremail = #{useremail,jdbcType=VARCHAR},
+      </if>
+      <if test="useraddress != null" >
+        Useraddress = #{useraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userwish != null" >
+        Userwish = #{userwish,jdbcType=VARCHAR},
+      </if>
+      <if test="usercart != null" >
+        Usercart = #{usercart,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Userid = #{userid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.computershop.model.Users" >
+    update users
+    set Username = #{username,jdbcType=VARCHAR},
+      Userpassword = #{userpassword,jdbcType=VARCHAR},
+      Userphone = #{userphone,jdbcType=VARCHAR},
+      Useremail = #{useremail,jdbcType=VARCHAR},
+      Useraddress = #{useraddress,jdbcType=VARCHAR},
+      Userwish = #{userwish,jdbcType=VARCHAR},
+      Usercart = #{usercart,jdbcType=VARCHAR}
+    where Userid = #{userid,jdbcType=INTEGER}
+  </update>
+</mapper>
