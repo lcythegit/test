@@ -18,7 +18,7 @@ public class Users {
 
     private String userwish;
 
-    private String usercart;
+
 
     public Integer getUserid() {
         return userid;
@@ -76,11 +76,5 @@ public class Users {
         this.userwish = userwish == null ? null : userwish.trim();
     }
 
-    public String getUsercart() {
-        return usercart;
-    }
 
-    public void setUsercart(String usercart) {
-        this.usercart = usercart == null ? null : usercart.trim();
-    }
 }
