@@ -4,9 +4,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Users {
-    private Integer userid;
 
-    private String username;
+
+
 
     private String userpassword;
 
@@ -18,23 +18,10 @@ public class Users {
 
     private String userwish;
 
-    private String usercart;
 
-    public Integer getUserid() {
-        return userid;
-    }
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
-    }
 
-    public String getUsername() {
-        return username;
-    }
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
-    }
 
     public String getUserpassword() {
         return userpassword;
@@ -76,11 +63,5 @@ public class Users {
         this.userwish = userwish == null ? null : userwish.trim();
     }
 
-    public String getUsercart() {
-        return usercart;
-    }
 
-    public void setUsercart(String usercart) {
-        this.usercart = usercart == null ? null : usercart.trim();
-    }
 }
