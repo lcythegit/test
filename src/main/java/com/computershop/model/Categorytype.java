@@ -9,7 +9,7 @@ public class Categorytype {
 
     private String dell;
 
-    private String le;
+    private String li;
 
     private String apple;
 
@@ -46,11 +46,11 @@ public class Categorytype {
     }
 
     public String getLe() {
-        return le;
+        return li;
     }
 
     public void setLe(String le) {
-        this.le = le == null ? null : le.trim();
+        this.li = le == null ? null : le.trim();
     }
 
     public String getApple() {
